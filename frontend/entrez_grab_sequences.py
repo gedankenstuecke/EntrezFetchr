@@ -30,7 +30,7 @@ def get_entrez_ids(parameters):
 		while error_counter < 3:
 			try:
 				handle = Entrez.esearch(db=parameters["database"],
-					term=species+"[Orgn] AND "+parameters["search_term"])
+					term=species+"[Orgn] AND "+parameters["search_term"],retmax=10**9)
 				record = Entrez.read(handle)
 				sys.stdout.write("\r")	
 				hit_ids[species] = record["IdList"]
