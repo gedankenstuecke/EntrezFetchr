@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>{%block title%}Entrez Fetch{%endblock title%}</title>
+
+	<link href="{{STATIC_URL}}css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css"/>
+	<link href="{{STATIC_URL}}css/bootstrap-responsive.min.css" media="screen" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="container">
+			<a class="brand" href="/">Fetch from NCBI Entrez</a>
+		</div>
+	</div>
+</div>
+
+{%block content%}
+<h1>Foobar!</h1>
+{%endblock content%}
+<footer class="footer">
+<div class="container">
+<hr />
+	<p>This page uses <a href="https://www.djangoproject.com/">Django</a>, <a href="http://www.rabbitmq.com">RabbitMQ</a> and <a href="http://celeryproject.org/">Celery</a>.</p>
+	<p>The NCBI databases are queried using <a href="http://www.ncbi.nlm.nih.gov/sites/gquery">Entrez</a> through <a href="http://biopython.org/">Biopython</a>. And just to make it clear: This site is in no way connected with the <a href="http://www.ncbi.nlm.nih.gov/">NCBI</a></p>
+	<p>The stylesheet is <a href="http://twitter.github.com/bootstrap/index.html">Bootstrap, from Twitter</a>, which is released under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License v2.0</a>. The icons are from <a href="http://glyphicons.com/">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+</div>
+</footer>
+
+</body>
+</html>

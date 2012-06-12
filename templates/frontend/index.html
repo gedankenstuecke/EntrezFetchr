@@ -1,0 +1,32 @@
+{%extends "base.html"%}
+{%block content%}
+<div class="container">
+	<h1>Fetch Sequences & Publications from NCBI via Entrez</h1>
+	<div class="row-fluid">
+		<div class="span7">
+		<div class="well">
+			<h3><i class="icon-book"></i> Help</h3>
+			This site allows you to fetch sequences or publications from the NCBI databases using a list of species you are interested in and a (nested) search term of your choice. So far you may query the <em>Pubmed</em>, <em>Nucleotide</em> & <em>Protein</em> databases. 
+			<h5><i class="icon-envelope"></i> eMail</h5>
+			Your email address is used to deliver you an email as soon as the results are ready. The email includes a link to download the found sequences (in FASTA-format) or publications (as CSV-file). 
+			<h5><i class="icon-search"></i> Search Term</h5>
+			Provide a search term (e.g. a gene name) you are interested in. You can nest your search term using the standard logical operations (AND/OR) and the field-IDs (e.g. CytB[Gene Name]) like produced by the different <a href="http://www.ncbi.nlm.nih.gov/nuccore/advanced">Search Builders</a> of NCBI. 
+			<h5><i class="icon-file"></i> Species File</h5>
+			Upload a plain text file with all the species names you are interested in. Keep it to one species per line.
+			<h5><i class="icon-hdd"></i> Database</h5>
+			Select the database you want to crawl. Right now you can choose between <em>Pubmed</em>, <em>Nucleotide</em> & <em>Protein</em>. 
+			<h5><i class="icon-download-alt"></i> Download</h5>
+			You don't want to run it over the web? You can <a href="{{STATIC_URL}}entrez_grab_sequences.py">download the standalone <em>Python</em>-script</a>, as well as <a href="https://github.com/gedankenstuecke/EntrezFetchr">the sources to this page</a>. To run the commandline version you need to make sure to have installed <a href="http://biopython.org/">Biopython</a>.   	
+		</div></div>
+		<div class="span5">
+		<div class="well">
+			<h5>Submit Query</h5>
+			<form class="form-horizontal" enctype="multipart/form-data" method="post">
+			{%csrf_token%}
+			{{form}}
+			<input class="btn btn-primary" name="commit" type="submit" value="Submit" />
+			</form>
+		</div></div>
+	</div>
+</div>
+{%endblock content%}

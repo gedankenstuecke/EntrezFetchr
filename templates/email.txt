@@ -1,0 +1,18 @@
+Hello,
+your Entrez-results for the search term {{search_term}} in the NCBI database {{database}} are ready. You can download the results at http://141.2.44.244:8000/static{{download}}. 
+
+Your search-results will be stored on our server for 14 days, before they will get deleted. 
+
+{%if errors%}Unfortunately we encountered some problems while fetching the data. This may be due to connection problems to the NCBI servers or due to other unforeseen errors. Maybe just resubmitting your file & search-term can help. Otherwise you will find the database IDs & Species which created the problems below. So you can try to fetch the data manually.{%endif%}
+{%if species_errors%}
+We couldn't fetch items for the following species:
+{%for i in species_errors%}
+{{i}}
+{%endfor%}{%endif%}
+{%if id_errors%}
+We couldn't fetch the database items with the following IDs:
+{%for i in id_errors%}
+{{i}}
+{%endfor%}{%endif%}
+Thanks for using our little tool.
+Cheers!

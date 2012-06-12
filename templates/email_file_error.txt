@@ -1,0 +1,6 @@
+Hi there,
+we're sorry to inform you that we couldn't get the results for your search term "{{search_term}}" from NCBIs {{database}} database, because there was a problem with your species-input-file.
+
+Please make sure that it's a plain text file and contains only one species per line. 
+
+Have a nice day. 
