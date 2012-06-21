@@ -8,11 +8,11 @@
 			<h3><i class="icon-book"></i> Help</h3>
 			This site allows you to fetch sequences or publications from the NCBI databases using a list of species you are interested in and a (nested) search term of your choice. So far you may query the <em>Pubmed</em>, <em>Nucleotide</em> & <em>Protein</em> databases. 
 			<h5><i class="icon-envelope"></i> eMail</h5>
-			Your email address is used to deliver you an email as soon as the results are ready. The email includes a link to download the found sequences (in FASTA-format) or publications (as CSV-file). 
+			Your email address is used to deliver you an email as soon as the results are ready. The email includes a link to download the found sequences (in FASTA-format) or publications (as CSV-file). This address is also used to identify at the NCBI, so they might contact you if something goes wrong.
 			<h5><i class="icon-search"></i> Search Term</h5>
 			Provide a search term (e.g. a gene name) you are interested in. You can nest your search term using the standard logical operations (AND/OR) and the field-IDs (e.g. CytB[Gene Name]) like produced by the different <a href="http://www.ncbi.nlm.nih.gov/nuccore/advanced">Search Builders</a> of NCBI. 
 			<h5><i class="icon-file"></i> Species File</h5>
-			Upload a plain text file with all the species names you are interested in. Keep it to one species per line.
+			Upload a plain text file with all the species names you are interested in. Keep it to one species per line. Right now the maximum number of items you can request is {{threshold}}. If you feel that your query might hit this threshold you can consider to split your job into sub-queries or run the commandline version on your machine.
 			<h5><i class="icon-hdd"></i> Database</h5>
 			Select the database you want to crawl. Right now you can choose between <em>Pubmed</em>, <em>Nucleotide</em> & <em>Protein</em>. 
 			<h5><i class="icon-download-alt"></i> Download</h5>

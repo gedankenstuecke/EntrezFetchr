@@ -12,7 +12,7 @@ The application makes use of and requires:
 * Biopython (http://biopython.org/)
 
 ## How-To
-* Adjust the settings.py to your needs (location of the project, credentials for your SMTP-server)
+* Adjust the settings.py to your needs (location of the project, credentials for your SMTP-server, how long results will be saved, maximum number of results per run)
 * Run "./manage.py syncdb" to create the SQLite-database for storing celery-results.
 * Start your RabbitMQ-server
 * Start a Celery-worker: "./manage.py celeryd"

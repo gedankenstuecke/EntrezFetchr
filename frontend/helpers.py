@@ -15,7 +15,7 @@ def send_results(parameter_hash,errors,species_errors,id_errors):
 	plain_content = plaintext.render(context)
 	email = EmailMessage("Your Entrez-Results are ready",
 				plain_content,
-				"entrez.fetcher@gmail.com",
+				settings.EMAIL_HOST_USER,
 				[parameter_hash["email"]])
 	email.send()
 	print "send email to "+parameter_hash["email"]
@@ -27,9 +27,21 @@ def send_file_error(parameter_hash):
 	plain_content = plaintext.render(context)
 	email = EmailMessage("EntrezFetch: A problem with your data occured", 
 				plain_content, 
-				"entrez.fetcher@gmail.com",[parameter_hash["email"]])
+				settings.EMAIL_HOST_USER,[parameter_hash["email"]])
 	email.send()
 	print "send error-message to "+parameter_hash["email"]
+
+def send_length_error(parameter_hash):
+	plaintext = get_template("email_length_error.txt")
+	context = Context({"database":parameter_hash["database"],
+			"search_term":parameter_hash["search_term"],
+			"threshold":settings.RESULTS_THRESHOLD})
+	plain_content = plaintext.render(context)
+	email = EmailMessage("EntrezFetch: Too many results", 
+				plain_content, 
+				settings.EMAIL_HOST_USER,[parameter_hash["email"]])
+	email.send()
+	print "send too-many-results-error to "+parameter_hash["email"]
 
 def check_binary(file_name):
 	file_handle = open(file_name, 'rb')

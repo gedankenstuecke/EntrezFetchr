@@ -34,7 +34,7 @@ def index(request):
 					 "search_term": parameter_hash["search_term"]},
 					context_instance=RequestContext(request))
 		else:
-			return render_to_response("frontend/index.html",{"form":form},context_instance=RequestContext(request))
+			return render_to_response("frontend/index.html",{"form":form,"threshold":settings.RESULTS_THRESHOLD},context_instance=RequestContext(request))
 	else:
 		form = SubmitForm()
-		return render_to_response("frontend/index.html",{"form":form},context_instance=RequestContext(request))		
+		return render_to_response("frontend/index.html",{"form":form,"threshold":settings.RESULTS_THRESHOLD},context_instance=RequestContext(request))		
