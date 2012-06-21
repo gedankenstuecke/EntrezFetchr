@@ -6,7 +6,8 @@ CELERYD_CONCURRENCY = 1
 # Enter the absolute path to your directory
 BASE_DIRECTORY = "/your/path/to/root/directory/"
 
-
+# Enter the time (in days) that old files should be kept
+TIME_THRESHOLD = 14
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'

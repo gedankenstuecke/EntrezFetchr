@@ -2,7 +2,7 @@ from django.conf import settings
 from celery.task import task
 from entrez_grab_sequences import *
 from helpers import *  
-import os
+import os,time
 
 @task()
 def add(x, y):
@@ -33,6 +33,19 @@ def get_data(parameter_hash):
 		errors = False
 	send_results(parameter_hash,errors,species_errors,id_errors)
 	os.remove(parameter_hash["species_file"])
+	delete_old_files(settings.BASE_DIRECTORY+'static/downloads/',settings.TIME_THRESHOLD)
 	print "removed input-file"
 	return "done"
-	
+
+def delete_old_files(directory,threshold):
+	now = time.time()
+	threshold_time = now - 60*60*24*threshold
+	for single_file in os.listdir(directory):
+		if single_file != "readme.txt":
+			creation_time = os.path.getctime(directory+single_file)
+			if creation_time < threshold_time:
+				print "deleted file"
+				os.remove(directory+single_file)
+			else:
+				print "file is not old enough"
+	return "done"
