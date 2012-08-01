@@ -1,0 +1,6 @@
+Hi there,
+we're sorry to inform you that we couldn't get the results for your search term "{{search_term}}" from NCBIs {{database}} database, because it would yield to many results.
+
+Right now we limit the maximum number of results to {{threshold}}. Please refine your query and try it again. If you are using a huge species-file you might consider to split it into sub-jobs.
+
+Have a nice day. 
